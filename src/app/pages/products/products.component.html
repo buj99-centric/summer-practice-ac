@@ -1,2 +1,28 @@
-<p>products works!</p>
+<form [formGroup]="productForm">
+    <div class="margin-bottom">
+        <label for="title">Title: </label>
+        <input id="title" type="text" formControlName="title">
+    </div>
+
+    @if (title.errors) {
+        <p class="error">Title must have maximum 10 characters.</p>
+    }
+
+    <div class="margin-bottom">
+        <label for="price">Price: </label>
+        <input id="price" type="number" formControlName="price">
+    </div>
+
+    <div class="margin-bottom">
+        <label for="description">Description: </label>
+        <input id="description" type="text" formControlName="description">
+    </div>
+
+    <div class="margin-bottom">
+        <label for="category">Category: </label>
+        <input id="category" type="text" formControlName="category">
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
 <router-outlet></router-outlet>
