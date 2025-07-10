@@ -23,32 +23,27 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ProductsComponent implements OnInit {
   productForm: FormGroup = new FormGroup({
-    title: new FormControl('', Validators.maxLength(10)),
-    price: new FormControl(10, [Validators.min(10), Validators.max(100)]),
+    name: new FormControl('', Validators.maxLength(10)),
+    value: new FormControl(10, [Validators.min(10), Validators.max(100)]),
     description: new FormControl('a'),
     category: new FormControl(''),
   });
 
-  get title(): FormControl {
-    return this.productForm.get('title') as FormControl;
+  get name(): FormControl {
+    return this.productForm.get('name') as FormControl;
   }
 
-  get price(): FormControl {
-    return this.productForm.get('price') as FormControl;
-  }
-
-  get description(): FormControl {
-    return this.productForm.get('description') as FormControl;
+  get value(): FormControl {
+    return this.productForm.get('value') as FormControl;
   }
 
   ngOnInit(): void {
-    this.title.setValue('Nice product');
+    this.name.setValue('Nice product');
   }
 
   onSubmit(): void {
     console.log('Form submitted:', this.productForm.value);
-    console.log('Error on title:', this.title.errors);
-    console.log('Error on price:', this.price.errors);
-    console.log('Error on description:', this.description.errors);
+    console.log('Error on name:', this.name.errors);
+    console.log('Error on value:', this.value.errors);
   }
 }
