@@ -1,32 +1,55 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="productForm"
+      (ngSubmit)="onSubmit()">
     <div class="margin-bottom">
-        <label for="name">Name: </label>
-        <input id="name" type="text" formControlName="name">
+        <mat-form-field>
+            <mat-label for="name">Name: </mat-label>
+            <input matInput
+                   id="name"
+                   type="text"
+                   formControlName="name">
+        </mat-form-field>
     </div>
 
     @if (name.errors) {
-        <p class="error">Name must have maximum 10 characters.</p>
+    <p class="error">Name must have maximum 10 characters.</p>
     }
 
     <div class="margin-bottom">
-        <label for="value">Price: </label>
-        <input id="value" type="number" formControlName="value">
+        <mat-form-field>
+            <mat-label for="value">Price: </mat-label>
+            <input matInput
+                   id="value"
+                   type="number"
+                   formControlName="value">
+        </mat-form-field>
     </div>
 
     @if (value.errors) {
-        <p class="error">Value should be between 10 and 100.</p>
+    <p class="error">Value should be between 10 and 100.</p>
     }
 
     <div class="margin-bottom">
-        <label for="description">Description: </label>
-        <input id="description" type="text" formControlName="description">
+        <mat-form-field>
+            <mat-label for="description">Description: </mat-label>
+            <input matInput
+                   id="description"
+                   type="text"
+                   formControlName="description">
+        </mat-form-field>
     </div>
 
     <div class="margin-bottom">
-        <label for="category">Category: </label>
-        <input id="category" type="text" formControlName="category">
+        <mat-form-field>
+            <mat-label for="category">Category: </mat-label>
+            <input matInput
+                   id="category"
+                   type="text"
+                   formControlName="category">
+        </mat-form-field>
     </div>
 
-    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+    <button mat-button="elevated"
+            type="submit"
+            [disabled]="!productForm.valid">Submit</button>
 </form>
 <router-outlet></router-outlet>
