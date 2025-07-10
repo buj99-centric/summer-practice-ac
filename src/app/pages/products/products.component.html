@@ -49,6 +49,6 @@
     </div>
 
     <button mat-button="elevated"
-            type="submit">Submit</button>
+            type="submit" [disabled]="!productForm.valid">Submit</button>
 </form>
 <router-outlet></router-outlet>
