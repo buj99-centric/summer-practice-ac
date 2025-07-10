@@ -1,17 +1,21 @@
-<form [formGroup]="productForm">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="margin-bottom">
-        <label for="title">Title: </label>
-        <input id="title" type="text" formControlName="title">
+        <label for="name">Name: </label>
+        <input id="name" type="text" formControlName="name">
     </div>
 
-    @if (title.errors) {
-        <p class="error">Title must have maximum 10 characters.</p>
+    @if (name.errors) {
+        <p class="error">Name must have maximum 10 characters.</p>
     }
 
     <div class="margin-bottom">
-        <label for="price">Price: </label>
-        <input id="price" type="number" formControlName="price">
+        <label for="value">Price: </label>
+        <input id="value" type="number" formControlName="value">
     </div>
+
+    @if (value.errors) {
+        <p class="error">Value should be between 10 and 100.</p>
+    }
 
     <div class="margin-bottom">
         <label for="description">Description: </label>
@@ -23,6 +27,6 @@
         <input id="category" type="text" formControlName="category">
     </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!productForm.valid">Submit</button>
 </form>
 <router-outlet></router-outlet>
